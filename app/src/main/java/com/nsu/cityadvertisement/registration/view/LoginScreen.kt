@@ -161,8 +161,9 @@ fun LoginScreen(navController: NavController,  paddingValues: PaddingValues) {
             onClick = {
                 emailError = if (email.isBlank()) "Email is required" else ""
                 passwordError = if (password.isBlank()) "Password is required" else ""
-                if (email.isEmpty() && password.isEmpty()){
+                if (email.isNotEmpty() && password.isNotEmpty()){
                     //login logic
+                    navController.navigate("map")
                 }
             },
             modifier = Modifier.fillMaxWidth().padding(horizontal = 90.dp)

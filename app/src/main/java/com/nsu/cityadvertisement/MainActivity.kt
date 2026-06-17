@@ -8,9 +8,12 @@ import androidx.compose.foundation.layout.fillMaxSize import androidx.compose.ma
 import androidx.compose.ui.Modifier
 import com.nsu.cityadvertisement.ui.theme.CityAdvertisementTheme
 import com.nsu.cityadvertisement.registration.view.AppNavigator
+import com.yandex.mapkit.MapKitFactory
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        MapKitFactory.setApiKey("6a36e86c-ada6-4af3-b82a-b7b9efabbb8c")
+        MapKitFactory.initialize(this)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
@@ -20,6 +23,16 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        MapKitFactory.getInstance().onStart()
+    }
+
+    override fun onStop() {
+        MapKitFactory.getInstance().onStop()
+        super.onStop()
     }
 }
 
