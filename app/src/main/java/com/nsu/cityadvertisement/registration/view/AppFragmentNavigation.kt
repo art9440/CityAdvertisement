@@ -5,6 +5,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.nsu.cityadvertisement.account.AccountScreen
+import com.nsu.cityadvertisement.mapscreen.MapScreen
 import com.nsu.cityadvertisement.view.LoginScreen
 
 
@@ -15,6 +17,8 @@ fun AppNavigator(paddingValues: PaddingValues) {
         composable("login") { LoginScreen(navController, paddingValues) }
         composable("register") { RegistrationScreen(navController, paddingValues) }
         composable("forgot") { ForgetPasswordScreen(navController, paddingValues) }
+        composable("map") { MapScreen(navController = navController, paddingValues = paddingValues) }
+        composable("account") { AccountScreen(navController = navController, paddingValues)}
     }
 
 }
